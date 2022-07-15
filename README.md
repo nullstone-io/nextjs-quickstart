@@ -29,8 +29,6 @@ The docker setup is configured to hot reload; you don't have to rebuild/restart 
 
 ### Docker
 
-NOTE: This setup requires configuring vite server to bind on `0.0.0.0`.
-
 ```shell
 docker compose up
 ```
@@ -63,8 +61,3 @@ docker compose restart app
 
 This static site was generated following these steps.
 1. `yarn create next-app --typescript`
-2. Configure `package.json` to serve on `0.0.0.0` (necessary for Docker setup)
-  ```json
-  "scripts": {
-    "dev": "vite --host=0.0.0.0",
-  ```
