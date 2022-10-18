@@ -5,7 +5,9 @@ services:
     image: nullstone/node:local
     command: ["yarn", "start:server"]
     ports:
-      - "9000:9000"
+      - "3000:3000"
+    environment:
+      - PORT=3000
     volumes:
       - node_modules:/app/node_modules
       - next-cache:/app/.next
