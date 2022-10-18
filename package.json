@@ -5,10 +5,14 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start:server": "node server.js",
+    "start:server": "node tracing.js",
     "lint": "next lint"
   },
   "dependencies": {
+    "@opentelemetry/api": "^1.2.0",
+    "@opentelemetry/auto-instrumentations-node": "^0.33.1",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.33.0",
+    "@opentelemetry/sdk-node": "^0.33.0",
     "next": "12.2.2",
     "react": "18.2.0",
     "react-dom": "18.2.0"

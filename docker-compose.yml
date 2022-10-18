@@ -8,10 +8,23 @@ services:
       - "3000:3000"
     environment:
       - PORT=3000
+      - NULLSTONE_ENV=localhost
+#      - OTEL_LOG_LEVEL=DEBUG
+#      - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-datadog:4318
     volumes:
       - node_modules:/app/node_modules
       - next-cache:/app/.next
       - .:/app
+
+#  otel-datadog:
+#    image: nullstone/otel-collector
+#    command: ["--config=/etc/datadog/collector.yml"]
+#    ports:
+#      - "13133:13133" # health_check extension
+#      - "4317:4317"   # OTLP gRPC receiver
+#      - "4318:4318"   # OTLP http receiver
+#    environment:
+#      - DD_API_KEY=
 
 volumes:
   node_modules: {}
