@@ -23,7 +23,7 @@ FROM nullstone/node
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-COPY *.js --chown=nextjs:nodejs ./
+COPY --chown=nextjs:nodejs *.js ./
 
 COPY --from=builder /app/public ./public
 # Automatically leverage output traces to reduce image size
