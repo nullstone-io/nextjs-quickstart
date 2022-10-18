@@ -3,7 +3,7 @@ version: '3.8'
 services:
   app:
     image: nullstone/node:local
-    command: ["yarn", "start:server"]
+    command: ["yarn", "dev"]
     ports:
       - "3000:3000"
     environment:

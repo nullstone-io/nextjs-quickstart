@@ -37,4 +37,4 @@ USER nextjs
 ENV PORT 3000
 EXPOSE 3000
 
-CMD ["yarn", "start:server"]
+CMD ["node", "server.js"]
