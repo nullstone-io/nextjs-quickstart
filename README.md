@@ -1,12 +1,11 @@
 # Next.js Quickstart
 
-Thi is a Next.js Static Site Quickstart for [Nullstone](https://nullstone.io).
+Thi is a Next.js Web App Quickstart for [Nullstone](https://nullstone.io).
 This is based off the official Next.js [Getting Started](https://nextjs.org/docs/getting-started) guide.
 This is bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 This quickstart is set up with:
 - Next.js 
-- Typescript
 
 ## How to launch via Nullstone
 
@@ -18,8 +17,8 @@ This quickstart is set up with:
   ```
 4. Build, push, and deploy
   ```shell
-  yarn build
-  nullstone launch --source=./dist --app=<app-name> --env=<env-name>
+  docker build -t nextjs .
+  nullstone launch --source=nextjs --app=<app-name> --env=<env-name>
   ```
 
 ## Running locally
