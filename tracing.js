@@ -6,8 +6,8 @@ if (process.env.OTEL_LOG_LEVEL) {
     diag.setLogger(new DiagConsoleLogger(), DiagLogLevel[process.env.OTEL_LOG_LEVEL ? process.env.OTEL_LOG_LEVEL : 'DEBUG']);
 }
 
-const appName = "nextjs"; //TODO: process.env.NULLSTONE_APP
-const version = "dev"; //TODO: process.env.NULLSTONE_VERSION
+const appName = process.env.NULLSTONE_APP || "nextjs";
+const version = process.env.NULLSTONE_VERSION || "dev";
 const envName = process.env.NULLSTONE_ENV || 'local';
 
 const opentelemetry = require('@opentelemetry/sdk-node');
