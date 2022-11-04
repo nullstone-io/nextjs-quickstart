@@ -1,0 +1,30 @@
+name: Create Preview Environment
+on:
+    pull_request:
+        types: [opened, reopened]
+
+env:
+  NULLSTONE_ORG: ${{ secrets.NULLSTONE_ORG }}
+  NULLSTONE_API_KEY: ${{ secrets.NULLSTONE_API_KEY }}
+  NULLSTONE_STACK: ${{ secrets.NULLSTONE_STACK }}
+  NULLSTONE_ENV: ${{ github.event.pull_request.title }}
+
+jobs:
+  create:
+    runs-on: ubuntu-latest
+
+    default:
+      run:
+        shell: bash
+
+    steps:
+      - name: Set up Nullstone
+        uses: nullstone-io/setup-nullstone-action@v0
+
+      - name: Create Preview Environment
+        run: |
+          nullstone envs new ${{ env.NULLSTONE_ENV }} --stack=${{ env.NULLSTONE_STACK }} --preview
+
+      - name: Launch Infrastructure
+        run: |
+          nullstone envs up --stack=${{ env.NULLSTONE_STACK }} --env=${{ env.NULLSTONE_ENV }}
