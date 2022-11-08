@@ -1,0 +1,30 @@
+name: Delete Preview Environment
+on:
+  pull_request:
+    types: [closed]
+
+env:
+  NULLSTONE_ORG: ${{ secrets.NULLSTONE_ORG }}
+  NULLSTONE_API_KEY: ${{ secrets.NULLSTONE_API_KEY }}
+  NULLSTONE_STACK: ${{ secrets.NULLSTONE_STACK }}
+  NULLSTONE_ENV: ${{ github.event.pull_request.title }}
+
+jobs:
+  create:
+    runs-on: ubuntu-latest
+
+    default:
+      run:
+        shell: bash
+
+    steps:
+      - name: Set up Nullstone
+        uses: nullstone-io/setup-nullstone-action@v0
+
+      - name: Destroy Preview Environment
+        run: |
+          nullstone envs down --stack=${{ env.NULLSTONE_STACK }} --env=${{ env.NULLSTONE_ENV }}
+
+      - name: Delete Environment
+        run: |
+          nullstone envs delete --stack=${{ env.NULLSTONE_STACK }} --env=${{ env.NULLSTONE_ENV }} --force

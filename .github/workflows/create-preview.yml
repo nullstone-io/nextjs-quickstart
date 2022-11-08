@@ -1,7 +1,7 @@
 name: Create Preview Environment
 on:
-    pull_request:
-        types: [opened, reopened]
+  pull_request:
+    types: [opened, reopened]
 
 env:
   NULLSTONE_ORG: ${{ secrets.NULLSTONE_ORG }}
