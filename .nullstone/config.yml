@@ -5,7 +5,7 @@ subdomains:
     module: nullstone/aws-autogen-subdomain
 
 apps:
-  aspnet:
+  nextjs-quickstart:
     module: nullstone/aws-fargate-service
     vars:
       cpu: 256
