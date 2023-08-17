@@ -2,7 +2,7 @@ version: "0.1"
 
 subdomains:
   nextjs-subdomain:
-    module: nullstone/aws-autogen-subdomain
+    module: nullstone/autogen-aws-subdomain
 
 apps:
   nextjs-quickstart:
