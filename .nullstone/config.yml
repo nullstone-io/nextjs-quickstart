@@ -15,4 +15,3 @@ apps:
       - module: nullstone/aws-load-balancer
         connections:
           subdomain: nextjs-subdomain
-
